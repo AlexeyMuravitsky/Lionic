@@ -11,8 +11,8 @@
     left: 0;
     top: 0;
     /* width: 25%; */
-    min-height: 250px;
-    height: 100vh;
+    /* min-height: 250px; */
+    height: 100dvh;
     z-index: 1000;
     padding: 25px 75px 25px 25px;
     box-shadow: 0 0 5px #888;
