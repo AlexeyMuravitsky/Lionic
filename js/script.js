@@ -2,7 +2,9 @@ let burger = document.querySelector(".burger");
 let menu = document.querySelector(".header__nav");
 let menuLinks = menu.querySelectorAll(".nav__link");
 
-burger.addEventListener("click", function () {
+burger.addEventListener("click", function (event) {
+  event._isclickAlert = true;
+  console.log(event);
   burger.classList.toggle("burger--active");
   menu.classList.toggle("header__nav--active");
   document.body.classList.toggle("stop-scroll");
@@ -14,4 +16,18 @@ menuLinks.forEach(function (el) {
     menu.classList.remove("header__nav--active");
     document.body.classList.remove("stop-scroll");
   });
+});
+
+//
+document.body.addEventListener("click", function (event) {
+  console.log(event);
+  if (
+    event._isclickAlert === true ||
+    event.target.classList.contains("header__nav--active") === true
+  )
+    return;
+
+  burger.classList.remove("burger--active");
+  menu.classList.remove("header__nav--active");
+  document.body.classList.remove("stop-scroll");
 });
